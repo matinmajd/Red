@@ -36,7 +36,7 @@
 
 #### chsarp basic
 
-```csharp
+```csha
 System.Diagnostics.Process process = new System.Diagnostics.Process();
 System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
 startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
