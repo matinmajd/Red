@@ -134,8 +134,6 @@ ivy  -stageless -Ix86 shell.bin -P Inject -O test.png
 ivy -stageless -Ix86 shell.bin -P Inject -unhook -O test.png
 ```
 
-
-
 ```
 
 ```
